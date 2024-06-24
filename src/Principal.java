@@ -1,28 +1,46 @@
+import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.alura.screenmatch.modelo.Filme;
 import br.com.alura.screenmatch.modelo.Serie;
 
 public class Principal {
     public static void main(String[] args) {
-        Filme Filme = new Filme();
-        Serie serie = new Serie();
 
+        Filme filme = new Filme();
+        filme.setNome("O poderoso chefão");
+        filme.setAnoDeLancamento(1970);
+        filme.setDuracaoEmMinutos(180);
+        filme.setIncluidoNoPlano(true);
+        filme.avalia(8);
+        filme.avalia(5);
+        filme.avalia(10);
+        filme.exibeFichaTecnica();
+        System.out.println("Média da avaliação: " + filme.pegaMedia() + "\n");
+
+        Serie serie = new Serie();
         serie.setNome("Lost");
         serie.setAnoDeLancamento(2000);
-        serie.exibeFichaTecnica();
         serie.setTemporadas(10);
         serie.setEpisodiosPorTemporada(10);
+        serie.setMinutosPorEpisodio(50);
+        serie.setIncluidoNoPlano(true);
+        serie.exibeFichaTecnica();
+        System.out.println("Duração da serie: " + serie.getDuracaoEmMinutos() + "\n");
 
-        Filme.setNome("O poderoso chefão");
-        Filme.setAnoDeLancamento(1970);
-        Filme.setDuracaoEmMinutos(180);
+        Filme outroFilme = new Filme();
+        outroFilme.setNome("Avatar");
+        outroFilme.setAnoDeLancamento(2023);
+        outroFilme.setDuracaoEmMinutos(200);
+        filme.setIncluidoNoPlano(true);
+        outroFilme.exibeFichaTecnica();
 
-        Filme.exibeFichaTecnica();
-        Filme.avalia(8);
-        Filme.avalia(5);
-        Filme.avalia(10);
-       // System.out.println(meuFilme.somaDasAvaliacoes);
-       // System.out.println(meuFilme.totalDeAvaliacoes);
-        System.out.println(Filme.pegaMedia());
+        CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
+        calculadora.inclui(filme);
+        calculadora.inclui(outroFilme);
+        calculadora.inclui(serie);
+        System.out.println("\nTempo total: " + calculadora.getTempoTotal());
+
+
+
 
     }
 }
