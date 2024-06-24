@@ -1,17 +1,28 @@
+import br.com.alura.screenmatch.modelo.Filme;
+import br.com.alura.screenmatch.modelo.Serie;
+
 public class Principal {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme();
-        meuFilme.nome = "O poderoso chefão";
-        meuFilme.anoDeLancamento = 1970;
-        meuFilme.duracaoEmMinutos = 180;
+        Filme Filme = new Filme();
+        Serie serie = new Serie();
 
-        meuFilme.exibeFichaTecnica();
-        meuFilme.avalia(8);
-        meuFilme.avalia(5);
-        meuFilme.avalia(10);
-        System.out.println(meuFilme.somaDasAvaliacoes);
-        System.out.println(meuFilme.totalDeAvaliacoes);
-        System.out.println(meuFilme.pegaMedia());
+        serie.setNome("Lost");
+        serie.setAnoDeLancamento(2000);
+        serie.exibeFichaTecnica();
+        serie.setTemporadas(10);
+        serie.setEpisodiosPorTemporada(10);
+
+        Filme.setNome("O poderoso chefão");
+        Filme.setAnoDeLancamento(1970);
+        Filme.setDuracaoEmMinutos(180);
+
+        Filme.exibeFichaTecnica();
+        Filme.avalia(8);
+        Filme.avalia(5);
+        Filme.avalia(10);
+       // System.out.println(meuFilme.somaDasAvaliacoes);
+       // System.out.println(meuFilme.totalDeAvaliacoes);
+        System.out.println(Filme.pegaMedia());
 
     }
 }
